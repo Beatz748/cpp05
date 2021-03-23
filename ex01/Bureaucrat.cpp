@@ -29,6 +29,10 @@ int		Bureaucrat::getGrade() const
 	return (this->_grade);
 }
 
+void Bureaucrat::signForm (Form & form)
+{
+	  
+}
 void	Bureaucrat::incrementGrade()
 {
 	if (this->_grade == 1)

@@ -13,8 +13,8 @@ int main(){
 	}
 	std::cout << std::endl;
 
-//	OK
 	Bureaucrat b("Bureaucrat b", 100);
+	std::cout << b << "\nLOLOLOLOL\n\n" << std::endl;
 	try{
 		b.incrementGrade();
 	}
@@ -26,7 +26,6 @@ int main(){
 	}
 	std::cout << std::endl;
 
-//	GradeTooHighException
 	try{
 		Bureaucrat c("Bureaucrat c", -5);
 	}
@@ -38,7 +37,6 @@ int main(){
 	}
 	std::cout << std::endl;
 
-//	OK and then GradeTooLowException
 	Bureaucrat d("Bureaucrat d", 148);
 	try{
 		d.decrementGrade();
