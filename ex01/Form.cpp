@@ -18,7 +18,7 @@ Form::Form(const Form & right)
 Form::Form(std::string name, bool indicator, int grade_sign, int grade_exec) : _name(name), _indicator(indicator), _grade_sign(grade_sign), _grade_exec(grade_exec)
 {
 	std::cout << "created form with name"
-		<< this.getName() << std:;endl;
+		<< this->getName() << std::endl;
 }
 Form & Form::operator=(const Form & right)
 {
@@ -28,26 +28,26 @@ Form & Form::operator=(const Form & right)
 	this->_indicator = right.getIndicator();
 	return *this;
 }
-int getSignGrade() const
+int Form::getSignGrade() const
 {
 	return this->_grade_sign;
 }
-int getExecGrade() const
+int Form::getExecGrade() const
 {
 	return this->_grade_exec;
 }
 
-bool getIndicator() const
+bool Form::getIndicator() const
 {
 	return this->_indicator;
 }
 
-std::string getName() const
+std::string Form::getName() const
 {
 	return this->_name;
 }
 
-void beSigned (const Bureaucrat & bur)
+void Form::beSigned (const Bureaucrat& bur)
 {
-
+	std::cout << "_grade now is 150" << std::endl;
 }

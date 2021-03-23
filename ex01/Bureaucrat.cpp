@@ -29,10 +29,6 @@ int		Bureaucrat::getGrade() const
 	return (this->_grade);
 }
 
-void Bureaucrat::signForm (Form & form)
-{
-	  
-}
 void	Bureaucrat::incrementGrade()
 {
 	if (this->_grade == 1)
@@ -66,4 +62,11 @@ std::ostream &operator<<(std::ostream &right, const Bureaucrat & bur)
 	right << bur.getName() << ", bureaucrat grade " << bur.getGrade()
 						<< std::endl;
 	return (right);
+}
+
+Bureaucrat& operator=(const Bureaucrat & right)
+{
+	this->_grade = right.getGrade();
+	this->_name = right.getName();
+	return *this;
 }
