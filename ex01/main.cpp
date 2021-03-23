@@ -1,5 +1,5 @@
-#include "Bureaucrat.hpp"
-#include "Form.hpp"
+
+#import "Form.hpp"
 int main(){
 	Bureaucrat b1("Bureaucrat b1", 130);
 

@@ -1,9 +1,11 @@
-#ifndef BUREAUCRAT_HPP
-#define BUREAUCRAT_HPP
+# pragma BUREAUCRAT_HPP
 
-# include <string>
-# include <iostream>
-# include "Form.hpp"
+# import <string>
+# import <iostream>
+# import "Form.hpp"
+
+class Form;
+
 class	Bureaucrat
 {
 	private:
@@ -34,4 +36,4 @@ class	Bureaucrat
 
 std::ostream &operator<<(std::ostream &right, const Bureaucrat & bur);
 
-#endif
+

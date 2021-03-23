@@ -1,8 +1,7 @@
-#ifndef FORM_HPP
-#define FORM_HPP
-
-# include <iostream>
-#include "Bureaucrat.hpp"
+#pragma FORM_HPP
+#import <iostream>
+#import "Bureaucrat.hpp"
+class Bureaucrat;
 
 class Form
 {
@@ -36,4 +35,3 @@ class Form
 
 std::ostream & operator<<(std::ostream & right, const Form & form);
 
-#endif

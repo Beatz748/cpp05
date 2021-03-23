@@ -64,9 +64,8 @@ std::ostream &operator<<(std::ostream &right, const Bureaucrat & bur)
 	return (right);
 }
 
-Bureaucrat& operator=(const Bureaucrat & right)
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat & right)
 {
 	this->_grade = right.getGrade();
-	this->_name = right.getName();
 	return *this;
 }
