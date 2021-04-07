@@ -1,31 +1,40 @@
 # include "Form.hpp"
+#include <ostream>
 
 Form::Form() : _name("no named form"), _indicator(false), _grade_sign(42), _grade_exec(42)
 {
-	std::cout << "default form created" << std::endl;
+	if (_grade_exec > 150)
+			throw Form::GradeTooLowException();
+	if (this->_grade_exec < 1)
+		throw Form::GradeTooHighException();
+	if (_grade_sign > 150)
+			throw Form::GradeTooLowException();
+	if (this->_grade_sign < 1)
+		throw Form::GradeTooHighException();
 }
 
 Form::~Form()
 {
-	std::cout << "I'm destructor" << std::endl;
 }
 
-Form::Form(const Form & right) : _name(right.getName()), _grade_sign(right.getSignGrade()),
-	_grade_exec(right.getExecGrade()), _indicator(right.getIndicator())
+Form::Form(const Form & right) :
+	_name(right.getName()), _indicator(getIndicator()), _grade_sign(getSignGrade()), _grade_exec(getExecGrade())
 {
 	*this = right;
 }
-Form::Form(std::string name, int grade_sign, int grade_exec) : _name(name),
-	_indicator(false), _grade_sign(grade_sign), _grade_exec(grade_exec)
+
+Form::Form(std::string name, int grade_sign, int grade_exec) : _name(name), _grade_sign(grade_sign), _grade_exec(grade_exec)
 {
-	if (_grade_sign < 1 || _grade_exec < 1)
-		throw (Form::GradeTooHighException());
-	if (_grade_sign > 150 || _grade_exec > 150)
-		throw (Form::GradeTooLowException());
-	std::cout << "created form with name"
-		<< this->getName() << std::endl;
+	if (_grade_exec > 150)
+			throw Form::GradeTooLowException();
+	if (this->_grade_exec < 1)
+		throw Form::GradeTooHighException();
+	if (_grade_sign > 150)
+			throw Form::GradeTooLowException();
+	if (this->_grade_sign < 1)
+		throw Form::GradeTooHighException();
 }
-Form & Form::operator=(const Form & right) 
+Form & Form::operator=(const Form & right)
 {
 	this->_indicator = right.getIndicator();
 	return *this;
@@ -51,26 +60,25 @@ std::string Form::getName() const
 
 void Form::beSigned (const Bureaucrat& bur)
 {
-	if (bur.getGrade() > this->getSignGrade())
-		throw(Form::GradeTooLowException());
+	if (bur.getGrade() < this->getSignGrade())
+		this->_indicator = true;
 	else
-		this->_indicator = 1;
-}
-
-const char * Form::GradeTooLowException::what() const throw()
-{
-	return "Form Grade is too Low";
-}
-
-const char * Form::GradeTooHighException::what() const throw()
-{
-	return "Form Grade is too High";
+		throw Form::GradeTooLowException();
 }
 
 std::ostream & operator<<(std::ostream & in, const Form & form)
 {
-	in << "FORM : \n name : " << form.getName() << " status : "
-		<< form.getIndicator() << " grade to sign : " << form.getSignGrade()
-		<< " grade to exec : " << form.getExecGrade() << std::endl;
+	in << form.getName() << " form status : " << form.getIndicator() << " sign grade : " << form.getSignGrade()
+		<< " exec grade " << form.getExecGrade() << std::endl;
 	return (in);
+}
+
+const char * Form::GradeTooLowException::what() const throw()
+{
+	return ("too low");
+}
+
+const char * Form::GradeTooHighException::what() const throw()
+{
+	return ("too high");
 }

@@ -1,26 +1,61 @@
+#include <iostream>
+
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
-int	main(void)
+int     main(void)
 {
-	try
-	{
-		Form	f24b("24B", 24, 0);
-		std::cout << f24b << std::endl;
-	}
-	catch (std::exception & e)
-	{
-		std::cout << "Exception : " << e.what() << std::endl;
-	}
+    Form        *form;
+    Bureaucrat  *dima;
+    Bureaucrat  *sergey;
 
-	Form		f24b("24B", 24, 1);
-	Bureaucrat	john("John", 10);
-	Bureaucrat	mike("Mike", 50);
+    // Test constructor Form
+    std::cout << std::endl;
 
-	std::cout << f24b << std::endl;
-	mike.signForm(f24b);
-	std::cout << f24b << std::endl;
-	john.signForm(f24b);
-	std::cout << f24b << std::endl;
-	return (0);
+    // requiered_sign_grade and requiered_exec_grade > 150
+    try
+    {
+        form = new Form("Paper", 211, 156);
+        std::cout << "It never gets printed." << std::endl;
+    }
+    catch (std::exception &e)
+    {
+        std::cerr << "Exception: " << e.what() << std::endl;
+    }
+    // requiered_sign_grade and requiered_exec_grade < 1
+
+    try
+    {
+        form = new Form("Paper", -9, -57);
+        std::cout << "It never gets printed." << std::endl;
+    }
+    catch (std::exception &e)
+    {
+        std::cerr << "Exception: " << e.what() << std::endl;
+    }
+
+    // Test sign Form by Bureaucrat
+    form = new Form("Paper", 40, 30);
+
+    // Bureaucrat's grade < requiered_sign_grade
+    std::cout << std::endl;
+
+    dima = new Bureaucrat("Dima", 77);
+    dima->signForm(*form);
+
+    // Bureaucrat's grade > requiered_sign_grade
+    std::cout << std::endl;
+
+    sergey = new Bureaucrat("Sergey", 12);
+    sergey->signForm(*form);
+
+    //Bureaucrat sign signed form
+    std::cout << std::endl;
+    dima->signForm(*form);
+
+    std::cout << std::endl;
+    delete sergey;
+    delete dima;
+    delete form;
+    return (0);
 }

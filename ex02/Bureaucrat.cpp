@@ -1,13 +1,11 @@
 #include "Bureaucrat.hpp"
-
+#include "Form.hpp"
 Bureaucrat::Bureaucrat() : _name("no name")
 {
-std::cout << _name << " was successfully created!" << std::endl;
 }
 
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << "destructor )=" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
@@ -16,7 +14,6 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 		throw Bureaucrat::GradeTooLowException();
 	if (this->_grade < 1)
 		throw Bureaucrat::GradeTooHighException();
-	std::cout << _name << " was successfully created!" << std::endl;
 }
 
 std::string	Bureaucrat::getName() const
@@ -34,8 +31,6 @@ void	Bureaucrat::incrementGrade()
 	if (this->_grade == 1)
 		throw(Bureaucrat::GradeTooHighException());
 	this->_grade -= 1;
-	std::cout << "now grade of " << this->getName() << " is " << this->getGrade()
-			<< std::endl;
 }
 
 void	Bureaucrat::decrementGrade()
@@ -43,8 +38,6 @@ void	Bureaucrat::decrementGrade()
 	if (this->_grade == 150)
 		throw(Bureaucrat::GradeTooLowException());
 	this->_grade += 1;
-	std::cout << "now grade of " << this->getName() << " is " << this->getGrade()
-			<< std::endl;
 }
 
 const char * Bureaucrat::GradeTooHighException::what() const throw()
@@ -64,6 +57,12 @@ std::ostream &operator<<(std::ostream &right, const Bureaucrat & bur)
 	return (right);
 }
 
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat & right)
+{
+	this->_grade = right.getGrade();
+	return *this;
+}
+
 void Bureaucrat::signForm(Form &form)
 {
 	try
@@ -71,14 +70,8 @@ void Bureaucrat::signForm(Form &form)
 		form.beSigned(*this);
 		std::cout << this->getName() << " signs " << form.getName() << std::endl;
 	}
-	catch (std::exception & e)
+	catch (std::exception & excep)
 	{
-		std::cout << this->getName() << " cannot sign " << form.getName() << " because "
-			<< e.what() << std::endl;
+		std::cout << this->getName() << " cannot sign " << form.getName() << " because " << excep.what() << std::endl;
 	}
-}
-Bureaucrat& Bureaucrat::operator=(const Bureaucrat & right)
-{
-	this->_grade = right.getGrade();
-	return *this;
 }

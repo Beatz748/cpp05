@@ -1,8 +1,8 @@
-# pragma BUREAUCRAT_HPP
-
-# import <string>
-# import <iostream>
-# import "Form.hpp"
+#ifndef BUREAUCRAT_HPP
+#define BUREAUCRAT_HPP
+#include <iostream>
+# include <string>
+# include "Form.hpp"
 
 class Form;
 
@@ -36,4 +36,4 @@ class	Bureaucrat
 
 std::ostream &operator<<(std::ostream &right, const Bureaucrat & bur);
 
-
+#endif

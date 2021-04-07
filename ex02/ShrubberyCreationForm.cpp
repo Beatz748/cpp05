@@ -1,26 +1,6 @@
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm()
+void ShrubberyCreationForm::execute(std::string & executor) const
 {
-
-}
-
-ShrubberyCreationForm::~ShrubberyCreationForm()
-{
-
-}
-
-ShrubberyCreationForm& ShrubberyCreationForm::operator=(ShrubberyCreationForm const& right)
-{
-	return *this;
-}
-
-ShrubberyCreationForm::ShrubberyCreationForm()
-{
-
-}
-
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : Form("ShrubberyCreationForm")
-{
-
+	std::cout << "efr" << std::endl;
 }

@@ -1,21 +1,24 @@
-#pragma FORM_HPP
-#import <iostream>
-#import "Bureaucrat.hpp"
+#ifndef FORM_HPP
+#define FORM_HPP
+#include <iostream>
+#include "Bureaucrat.hpp"
+
 class Bureaucrat;
+class Form;
 
 class Form
 {
 	private:
-		const std::string 			_name;
-		bool 										_indicator;
+		const std::string _name;
+		bool 							_indicator;
 		const int 							_grade_sign;
 		const int 							_grade_exec;
-		const std::string 			_target;
+		const std::string _target;
 	public:
 		Form();
 		~Form();
-
 		Form(std::string name, int grade_sign, int grade_exec);
+		Form(std::string name, int grade_sign, int grade_exec, std::string );
 		Form(const Form & right);
 		Form & operator=(const Form & right);
 		int getSignGrade() const;
@@ -33,7 +36,9 @@ class Form
 			public:
 				virtual const char *what() const throw();
 		};
+		virtual void execute(std::string & executor) const = 0;
 };
 
 std::ostream & operator<<(std::ostream & right, const Form & form);
 
+#endif
