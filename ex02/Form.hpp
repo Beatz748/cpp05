@@ -36,7 +36,7 @@ class Form
 			public:
 				virtual const char *what() const throw();
 		};
-		virtual void execute(std::string & executor) const = 0;
+		virtual void execute(Bureaucrat const & executor) const = 0;
 };
 
 std::ostream & operator<<(std::ostream & right, const Form & form);
