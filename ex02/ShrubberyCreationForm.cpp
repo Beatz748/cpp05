@@ -1,6 +1,9 @@
+#include "Form.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include <iostream>
+#include <string>
 
-void ShrubberyCreationForm::execute(std::string & executor) const
+void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
 	std::cout << "efr" << std::endl;
 }

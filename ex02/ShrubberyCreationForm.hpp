@@ -8,8 +8,8 @@
 class  ShrubberyCreationForm : public Form
 {
 	private:
-		ShrubberyCreationForm();
 	public:
+		ShrubberyCreationForm();
 		ShrubberyCreationForm(std::string & target);
 		ShrubberyCreationForm(const ShrubberyCreationForm & right);
 		virtual ~ShrubberyCreationForm();
