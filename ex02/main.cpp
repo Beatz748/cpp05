@@ -23,7 +23,7 @@ int     main(void)
     std::cout << *trees << std::endl;;
 
     // Test execute form ShrubberyCreationForm
-    std::cout << std::end;
+    std::cout << std::endl;
     karina->executeForm(*trees);
     nina->executeForm(*trees);
 
@@ -31,7 +31,7 @@ int     main(void)
     std::cout << std::endl;
     RobotomyRequestForm     *robot_form = new RobotomyRequestForm("Bob");
     while (karina->getGrade() > 40)
-        karina->upGrade();
+        karina->incrementGrade();
     std::cout << *robot_form << std::endl;
     std::cout << *karina << std::endl;
     karina->signForm(*robot_form);
@@ -43,7 +43,7 @@ int     main(void)
     std::cout << std::endl;
     PresidentialPardonForm  *pres_form = new PresidentialPardonForm("Jim");
     while (nina->getGrade() > 4)
-        nina->upGrade();
+        nina->incrementGrade();
     std::cout << *pres_form << std::endl;;
     std::cout << *nina << std::endl;;
     nina->signForm(*pres_form);
@@ -52,7 +52,6 @@ int     main(void)
 
     delete pres_form;
     delete robot_form;
-    delete trees;
     delete nina;
     delete karina;
     std::cout << std::endl;
