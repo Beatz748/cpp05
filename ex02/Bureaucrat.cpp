@@ -1,5 +1,6 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
+#include <exception>
 Bureaucrat::Bureaucrat() : _name("no name")
 {
 }
@@ -73,5 +74,19 @@ void Bureaucrat::signForm(Form &form)
 	catch (std::exception & excep)
 	{
 		std::cout << this->getName() << " cannot sign " << form.getName() << " because " << excep.what() << std::endl;
+	}
+}
+
+
+void Bureaucrat::executeForm(Form const & form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << this->getName() << " executes " << form.getName() << std::endl;
+	}
+	catch (std::exception &ex)
+	{
+		std::cout << ex.what() << std::endl;
 	}
 }
