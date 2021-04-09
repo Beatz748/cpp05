@@ -29,8 +29,19 @@ void RobotomyRequestForm::execute(const Bureaucrat & executor) const
 {
 	if (!this->getIndicator())
 		throw Form::NoSignedFormException();
-	if (this->getExecGrade() < executor.getGrade()){
+	if (this->getExecGrade() < executor.getGrade())
+	{
 		throw Form::GradeTooLowForExecuteException();
 	}
-	std::cout << this->getTarget() << " has been pardoned by Zafod Beeblebrox" << std::endl;
+	srand(time(0));
+	int r = rand() % 2;
+	if (r == 1)
+	{
+		std::cout << "KHDLRBGFO;IEJ'KRP'FSV;KNLJRTG;V'ELMRLN GJKENRLFKEMRNKJFN" << std::endl;
+		std::cout << this->getTarget() << " has been robotomized successfully" << std::endl;
+	}
+	else
+	{
+		std::cout << "Failed to robotomize " << this->getTarget() << std::endl;
+	}
 }
