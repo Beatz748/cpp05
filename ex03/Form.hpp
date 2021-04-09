@@ -17,7 +17,7 @@ class Form
 		const std::string _target;
 	public:
 		Form();
-		~Form();
+		virtual ~Form();
 		Form(std::string name, int grade_sign, int grade_exec);
 		Form(std::string name, int grade_sign, int grade_exec, const std::string & target);
 		Form(const Form & right);

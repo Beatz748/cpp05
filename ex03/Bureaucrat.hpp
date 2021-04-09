@@ -12,7 +12,7 @@ class	Bureaucrat
 		const std::string	_name;
 		int					_grade;
 	public:
-		~Bureaucrat();
+		virtual ~Bureaucrat();
 		Bureaucrat();
 		std::string			getName() const;
 		int					getGrade() const;
