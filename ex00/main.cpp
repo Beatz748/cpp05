@@ -48,7 +48,7 @@ int main(){
 	catch (Bureaucrat::GradeTooHighException &ex){
 		std::cout << ex.what() << std::endl;
 	}
-	catch (Bureaucrat::GradeTooLowException &ex){
+	catch (std::exception &ex){
 		std::cout << ex.what() << std::endl;
 	}
 	std::cout << std::endl;

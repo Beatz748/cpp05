@@ -23,7 +23,7 @@ Form::Form(const Form & right) :
 	*this = right;
 }
 
-Form::Form(std::string name, int grade_sign, int grade_exec) : _name(name), _grade_sign(grade_sign), _grade_exec(grade_exec)
+Form::Form(std::string name, int grade_sign, int grade_exec) : _name(name), _indicator(false), _grade_sign(grade_sign), _grade_exec(grade_exec)
 {
 	if (_grade_exec > 150)
 			throw Form::GradeTooLowException();

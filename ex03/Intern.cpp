@@ -46,7 +46,7 @@ Form * Intern::makeForm(const std::string & form_name, const std::string & targe
         if (form_name == types[i])
         {
             std::cout << "Intern creates " << types[i] << " form" << std::endl;
-                return (arr[i](types[i]));
+                return (arr[i](target));
         }
         i++;
     }

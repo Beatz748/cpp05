@@ -10,49 +10,45 @@
 int     main(void)
 {
     Bureaucrat  *karina = new Bureaucrat("Karina", 146);
-    Bureaucrat  *nina = new Bureaucrat("Nina", 100);
-    Form        *trees = new ShrubberyCreationForm("tree.output.file");
+    Bureaucrat  *pavel = new Bureaucrat("Pavel", 100);
+    Form        *trees = new ShrubberyCreationForm("Vanya");
 
-    // Test sign form ShrubberyCreationForm
     std::cout << std::endl;
     std::cout << *trees << std::endl;;
     std::cout << *karina << std::endl;;
     karina->signForm(*trees);
-    std::cout << *nina << std::endl;;
-    nina->signForm(*trees);
+    std::cout << *pavel << std::endl;;
+    pavel->signForm(*trees);
     std::cout << *trees << std::endl;;
 
-    // Test execute form ShrubberyCreationForm
     std::cout << std::endl;
     karina->executeForm(*trees);
-    nina->executeForm(*trees);
+    pavel->executeForm(*trees);
 
-    // Test execute form RobotomyRequestForm
     std::cout << std::endl;
-    RobotomyRequestForm     *robot_form = new RobotomyRequestForm("Bob");
+    RobotomyRequestForm     *robot_form = new RobotomyRequestForm("Carl");
     while (karina->getGrade() > 40)
         karina->incrementGrade();
     std::cout << *robot_form << std::endl;
     std::cout << *karina << std::endl;
     karina->signForm(*robot_form);
-    std::cout << *nina << std::endl;
-    nina->executeForm(*robot_form);
+    std::cout << *pavel << std::endl;
+    pavel->executeForm(*robot_form);
     karina->executeForm(*robot_form);
 
-    // Test execute form PresidentialPardonForm
     std::cout << std::endl;
     PresidentialPardonForm  *pres_form = new PresidentialPardonForm("Jim");
-    while (nina->getGrade() > 4)
-        nina->incrementGrade();
+    while (pavel->getGrade() > 4)
+        pavel->incrementGrade();
     std::cout << *pres_form << std::endl;;
-    std::cout << *nina << std::endl;;
-    nina->signForm(*pres_form);
+    std::cout << *pavel << std::endl;;
+    pavel->signForm(*pres_form);
     karina->executeForm(*pres_form);
-    nina->executeForm(*pres_form);
+    pavel->executeForm(*pres_form);
 
     delete pres_form;
     delete robot_form;
-    delete nina;
+    delete pavel;
     delete karina;
     std::cout << std::endl;
     return (0);

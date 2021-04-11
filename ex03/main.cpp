@@ -10,18 +10,18 @@
 int     main(void)
 {
     {
-        Intern lobanov;
+        Intern pavel;
         Form *tree;
         Form *robot_form;
         Form *pres_form;
         Form *noname_form;
 
-        tree = lobanov.makeForm("shrubbery creation", "tree_file.out");
-        robot_form = lobanov.makeForm("robotomy request", "Ivan");
-        pres_form = lobanov.makeForm("presidential pardon", "Kate");
+        tree = pavel.makeForm("shrubbery creation", "tree_file.out");
+        robot_form = pavel.makeForm("robotomy request", "Ivan");
+        pres_form = pavel.makeForm("presidential pardon", "Kate");
 
         try {
-            noname_form = lobanov.makeForm("NoName", "Alex");
+            noname_form = pavel.makeForm("NoName", "Alex");
         }
         catch (std::exception &e) {
             std::cerr << "Exception: " << e.what() << std::endl;
@@ -32,6 +32,7 @@ int     main(void)
         delete robot_form;
         delete pres_form;
     }
+    std::cout << "lolol" << std::endl;
     {
         Intern intern;
         Bureaucrat bur("Bureaucrat bur", 5);
